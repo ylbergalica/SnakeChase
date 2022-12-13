@@ -7603,6 +7603,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snake
       objectReference: {fileID: 0}
+    - target: {fileID: 5368211301816757458, guid: 2354a49c3f4232944982f8678d67d969, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5368211301816757459, guid: 2354a49c3f4232944982f8678d67d969, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -7651,5 +7655,9 @@ PrefabInstance:
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 626356335}
+    - target: {fileID: 8897132233040340572, guid: 2354a49c3f4232944982f8678d67d969, type: 3}
+      propertyPath: snakeSpeed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2354a49c3f4232944982f8678d67d969, type: 3}

@@ -176,7 +176,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.6151295
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -7590,7 +7590,7 @@ Transform:
   m_Children:
   - {fileID: 626356333}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5368211301273825672
 PrefabInstance:
@@ -7599,17 +7599,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1068931078813418985, guid: 2354a49c3f4232944982f8678d67d969, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 2686176535715875335, guid: 2354a49c3f4232944982f8678d67d969, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686176535715875335, guid: 2354a49c3f4232944982f8678d67d969, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686176535715875335, guid: 2354a49c3f4232944982f8678d67d969, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5368211301816757457, guid: 2354a49c3f4232944982f8678d67d969, type: 3}
       propertyPath: m_Name
       value: Snake
       objectReference: {fileID: 0}
-    - target: {fileID: 5368211301816757458, guid: 2354a49c3f4232944982f8678d67d969, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5368211301816757459, guid: 2354a49c3f4232944982f8678d67d969, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5368211301816757459, guid: 2354a49c3f4232944982f8678d67d969, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7639,25 +7651,9 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 5368211301816757459, guid: 2354a49c3f4232944982f8678d67d969, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5368211301816757459, guid: 2354a49c3f4232944982f8678d67d969, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5368211301816757459, guid: 2354a49c3f4232944982f8678d67d969, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8897132233040340572, guid: 2354a49c3f4232944982f8678d67d969, type: 3}
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 626356335}
-    - target: {fileID: 8897132233040340572, guid: 2354a49c3f4232944982f8678d67d969, type: 3}
-      propertyPath: snakeSpeed
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2354a49c3f4232944982f8678d67d969, type: 3}

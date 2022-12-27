@@ -5,62 +5,70 @@ using UnityEngine.Tilemaps;
 
 public class MoveSnake : MonoBehaviour
 {
-    public Tilemap tilemap;
+    public Transform movePoint;
     public float snakeSpeed;
 
-    private Vector3 snakePosition;
+    public Transform segmentPrefab;
+    private List<Transform> segments;
+    private string directionQueue;
     private string snakeDirection;
 
     // Start is called before the first frame update
     void Start()
     {
-        snakePosition = transform.position;
+        movePoint.parent = null;
+        segments = new List<Transform>();
+        segments.Add(this.transform);
         snakeDirection = "right";
-        snakeSpeed *= 0.001f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.A)) {
-            snakeDirection = "left";
-        }
-        if(Input.GetKeyDown(KeyCode.D)) {
-            snakeDirection = "right";
-        }
-        if(Input.GetKeyDown(KeyCode.W)) {
-            snakeDirection = "up";
-        }
-        if(Input.GetKeyDown(KeyCode.S)) {
-            snakeDirection = "down";
+        transform.position = Vector3.MoveTowards(transform.position, movePoint.position, snakeSpeed * Time.deltaTime);
+
+        foreach(Transform segment in segments) {
+            // segment.position = Vector3.MoveTowards();
         }
 
-        if(Input.GetKey(KeyCode.Space)) {
-            transform.position = tilemap.CellToWorld(new Vector3Int(0, 0, 0));
+        // if(Vector3.Distance(transform.position, movePoint.position) <= .05f) {
+        //     if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f) {
+        //         movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+        //     }
+        //     else if(Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f) {
+        //         movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+        //     }
+        // }
 
-            Debug.Log(transform.position);
+        if(Input.GetKeyDown(KeyCode.A) && snakeDirection != "right") {
+            directionQueue = "left";
+        }
+        if(Input.GetKeyDown(KeyCode.D) && snakeDirection != "left") {
+            directionQueue = "right";
+        }
+        if(Input.GetKeyDown(KeyCode.W) && snakeDirection != "down") {
+            directionQueue = "up";
+        }
+        if(Input.GetKeyDown(KeyCode.S) && snakeDirection != "up") {
+            directionQueue = "down";
         }
 
-        switch(snakeDirection) {
-            case "left":
-                transform.position += Vector3.left * snakeSpeed;
-                break;
-            case "right":
-                transform.position += Vector3.right * snakeSpeed;
-                break;
-            case "up":
-                transform.position += Vector3.up * snakeSpeed;
-                break;
-            case "down":
-                transform.position += Vector3.down * snakeSpeed;
-                break;
+        if(Vector3.Distance(transform.position, movePoint.position) == 0f) {
+            snakeDirection = directionQueue;
+            switch(snakeDirection) {
+                case "left":
+                    movePoint.position += new Vector3(-1f, 0f, 0f);
+                    break;
+                case "right":
+                    movePoint.position += new Vector3(1f, 0f, 0f);
+                    break;
+                case "up":
+                    movePoint.position += new Vector3(0f, 1f, 0f);
+                    break;
+                case "down":
+                    movePoint.position += new Vector3(0f, -1f, 0f);
+                    break;
+            }
         }
-    }
-
-    private Vector3 Translate(Vector3 coords) {
-        coords.x -= 0.5f;
-        coords.y -= 0.5f;
-
-        return coords;
     }
 }
